@@ -1,0 +1,15 @@
+<template name="exampleList">
+	<div class="examples">
+		{{#each examples}}
+			{{> exampleItem}}
+		{{/each}}
+	</div>
+</template>
+
+<!-- Here we can "extend" an existing template, and pass it
+the "options" settings. "options" returns our custom settings
+for the "Top Examples" list. We use this in examplesList.list to
+determine the sort criteria -->
+<template name="topExamplesList">
+	{{> examplesList options}}
+</template>
