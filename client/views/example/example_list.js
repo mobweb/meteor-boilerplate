@@ -6,7 +6,7 @@
  */
 Template.exampleList.helpers({
 	list: function() {
-		return Examples.find({}, {sort: this.sort, limit: this.handle.limit()});
+		return Examples.find(this.filter, this.options);
 	}
 });
 
@@ -23,10 +23,13 @@ Template.exampleList.events({
 // when extending the basic example list template. At the top of this file,
 // the data is used to determine the current sort order
 Template.topExamplesList.helpers({
-	options: function() {
+	arguments: function() {
 		return {
-			sort: {someAttribute: -1, anotherAttribute: -1},
-			handle: topExamplesHandle
+			filter: {},
+			options: {
+				sort: {someAttribute: -1, anotherAttribute: -1},
+				handle: topExamplesHandle
+			}
 		};
 	}
 });
